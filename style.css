@@ -31,7 +31,7 @@ main{
     content: "\2630";
 }
 
-.hamburguer-button[aria-expanded="true"]] .icon::before {
+.hamburguer-button[aria-expanded="true"] .icon::before {
     content: "\2715";
 }
 
