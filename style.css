@@ -20,3 +20,29 @@ main{
     margin: 0;
     background-color: #444;
 }
+
+.hamburguer-button .icon {
+    display: inline-block;
+    width: 30px;
+    text-align: center;
+}
+
+.hamburguer-button[aria-expanded="false"] .icon::before {
+    content: "\2630";
+}
+
+.hamburguer-button[aria-expanded="true"]] .icon::before {
+    content: "\2715";
+}
+
+.menu li a{
+    color: white;
+    padding: 10px;
+    display:block;
+    text-decoration: none;
+}
+
+.menu li a:hover,
+.menu li a:focus {
+    background-color: #555;
+}
