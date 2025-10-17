@@ -35,6 +35,21 @@ main{
     content: "\2715";
 }
 
+.hamburguer-button-js-enabled+.menu{
+    display: flex;
+    position: absolute;
+    width: calc(100% - 30px);
+    left: 15px;
+    top: 60px;
+    flex-direction: column;
+}
+
+.hamburguer-button-js-enabled+.menu-closed{
+    display: none;
+
+}
+
+
 .menu li a{
     color: white;
     padding: 10px;
@@ -56,6 +71,11 @@ main{
     padding: 14px;
     cursor: pointer;
 }
+
+.hamburguer-button-js-enabled {
+    display: block;
+}
+
 
 @media (min-width: 768px) {
 
