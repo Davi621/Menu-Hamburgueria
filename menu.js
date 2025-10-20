@@ -4,6 +4,7 @@ const menu = document.getElementById("menu")
 btnMenu.classList.add("hamburguer-button-js-enabled")
 
 function closeMenu() {
+    console.log(this)
     btnMenu.setAttribute("aria-expanded", "false")
     menu.setAttribute("aria-hidden", "true")
     menu.classList.add("menu-closed")
@@ -12,10 +13,12 @@ function closeMenu() {
 closeMenu()
 
 btnMenu.addEventListener("click", function() {
+        console.log(this)
+        // e.stopPropagation()
 
         let expanded = this.getAttribute("aria-expanded") === "true" ? true : false
 
-        // document.removeEventListener("click", closeMenu)
+        document.removeEventListener("click", closeMenu)
 
 
         if (expanded) {
@@ -27,6 +30,28 @@ btnMenu.addEventListener("click", function() {
         this.setAttribute("aria-expanded",!expanded)
         menu.setAttribute("aria-hidden", expanded)
 
-        // document.addEventListener("click", closeMenu)
-
+        setTimeout(function(){
+            if (!expanded) {
+                document.addEventListener("click", closeMenu)
+            }    
+        }, 1)       
 })
+
+const mediaQuery = window.matchMedia('(min-width: 768px)')
+
+function handleMediaQueryChange(){
+        if(e.matches) {
+            menu.setAttribute("aria-hidden", "false")
+            btnMenu.setAttribute("aria-expanded", "true")
+            menu.classList.remove("menu-closed")
+
+        } else {
+          menu.setAttribute("aria-hidden", "true")
+          btnMenu.setAttribute("aria-expanded", "false")
+          menu.classList.add("menu-closed")
+        }
+
+}
+
+mediaQuery.addEventListener("change", handleMediaQueryChange)
+handleMediaQueryChange(mediaQuery)
